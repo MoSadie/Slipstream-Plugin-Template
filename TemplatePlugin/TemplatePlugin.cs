@@ -17,7 +17,7 @@ namespace TemplatePlugin
 
         internal static ManualLogSource Log;
 
-        public static readonly string COMPATIBLE_GAME_VERSION = "4.1579"; // This is the fallback version if the version check fails, keep this up to date with the latest version of Slipstream: Rogue Space. The current versions is printed in the console when the game is started.
+        public static readonly string COMPATIBLE_GAME_VERSION = "4.1595"; // This is the fallback version if the version check fails, keep this up to date with the latest version of Slipstream: Rogue Space. The current versions is printed in the console when the game is started.
         public static readonly string GAME_VERSION_URL = "https://raw.githubusercontent.com/MoSadie/Slipstream-Template-Plugin/refs/heads/main/versions.json"; //FIXME: Update this URL to point to your own version file.
 
         // This is called when the plugin is loaded as a component on the BepInEx GameObject.
