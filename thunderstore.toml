@@ -18,7 +18,7 @@ readme = "./README.md"
 outdir = "./build"
 
 [[build.copy]]
-source = "./SlipInfo/bin/Release/netstandard2.1/com.mosadie.templateplugin.dll"
+source = "./TemplatePlugin/bin/Release/netstandard2.1/com.mosadie.templateplugin.dll"
 target = "BepInEx/plugins/MoSadie-TemplatePlugin/com.mosadie.templateplugin.dll"
 
 [[build.copy]]
