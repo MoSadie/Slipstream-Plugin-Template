@@ -1,13 +1,14 @@
 # Slipstream Plugin Template
 
-This is a template repository for people to create their own BepInEx plugins for Slipstream: Rogue Space. This template includes everything preconfigured, including the tool I made to check the game version and a plugin setting to toggle expanded logging.
+This is a template repository for people to create their own BepInEx plugins for Slipstream: Rogue Space. This template includes everything preconfigured, including the plugin I made to check the game version and a custom setting to toggle expanded logging.
 
  ## Requirements
 
 - [Slipstream: Rogue Space (free on Steam)](https://playslipstream.com)
 - [.NET](https://dotnet.microsoft.com/download)
 - [Visual Studio](https://visualstudio.microsoft.com/)
-- (For publishing) [A Thunderstore account](https://thunderstore.io/) and [Thunderstore CLI](https://github.com/thunderstore-io/thunderstore-cli?tab=readme-ov-file#installation)
+- [Thunderstore CLI](https://github.com/thunderstore-io/thunderstore-cli?tab=readme-ov-file#installation) (for bundling your plugin)
+- [A Thunderstore account](https://thunderstore.io/) (for publishing your plugin)
 
 Either:
 
@@ -23,7 +24,7 @@ OR
 
 ## Getting Started
 
-These instructions assume you're on Windows, I'm unsure if these steps will work on any other operating system, sorry!
+These instructions assume you're on Windows, I'm unsure if these steps will work on any other operating system, good luck!
 
 This guide is a combination of a few guides, here they are for additional reading, if desired:
 - [BepinEx Plugin Development](https://docs.bepinex.dev/articles/dev_guide/plugin_tutorial/index.html)
@@ -36,9 +37,9 @@ This guide is a combination of a few guides, here they are for additional readin
 2) Choose a name and adjust any settings you want. (If you want easy game version checking, make sure the repository is set to `Public`)
 3) Click `Create repository from template`
 
-If this is your first time doing anything with Git, you can use [GitHub Desktop](https://desktop.github.com/) to "clone" your new repository to your computer. This allows you to edit it locally then save your changes online, backing it up and making sharing easy.
+If this is your first time doing anything with Git, you can use [GitHub Desktop](https://desktop.github.com/) to "clone" your new repository to your computer. This allows you to edit it locally then save ("push") your changes online, backing it up and making sharing easy.
 
-For the purpose of this guide I'll walk you through GitHub Desktop.
+For the purpose of this guide I'll assume you're using GitHub Desktop.
 
 4) Once your Git client is all setup, you can use the `Clone` button online to clone your repository. You can use the `Open in GitHub Desktop` option to automatically start the clone.
 5) You should be able to `Show In Explorer` to find your project's files on your computer. (May need to go to the `Repository` menu at the top to see the option.)
@@ -173,7 +174,7 @@ Here's what to do:
 
 - If your crew member is not the captain/first mate, some information about the ship status is not available or may be inaccurate.
 - In general, the client only knows the minimum information to display on screen.
-- If you're curious about what is available to hook into in the game I personally use [dotPeek](https://www.jetbrains.com/decompiler/)
+- If you're curious about what is available to hook into in the game I personally use [dotPeek](https://www.jetbrains.com/decompiler/) to see what is available.
 
 - **PLEASE BE NICE TO THE DEVS**
     - Be careful with exceptions. Otherwise you will accidentally spam their logs. Ask me how I know.
@@ -183,8 +184,11 @@ Here's what to do:
     - In looking around the game files you will likely see things not yet revealed, keep them secret. Assume they don't work.
     - Please make clear to your users how they can get in contact with you, since they're using your plugin they should reach out to *you* first for support, not the devs.
 - **YOU DO NOT HAVE ACCESS TO THE SERVER**
-    - Sorry to break your dreams, but you won't be able to move other players or see how the map is generated.
+    - Sorry to ruin your dreams, but you won't be able to move other players or modify how the map is generated.
     - You only know what the client knows. Please be careful when dealing with showing more information than what the client actually shows.
+- **NON-MODIFIED PLAYERS WILL JOIN YOUR SHIP**
+    - Since anyone can join a ship, this will happen. Make sure your plugin doesn't depend on *everyone* having it.
+    - This will also happen if you launch a ship while testing, just be polite. Use the Helm to issue orders if you're not running any real runs.
 
 ## Plugin Configuration Options
 
