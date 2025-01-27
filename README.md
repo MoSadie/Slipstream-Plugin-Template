@@ -8,7 +8,7 @@ This is a template repository for people to create their own BepInEx plugins for
 - [.NET](https://dotnet.microsoft.com/download)
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [Thunderstore CLI](https://github.com/thunderstore-io/thunderstore-cli?tab=readme-ov-file#installation) (for bundling your plugin)
-- [A Thunderstore account](https://thunderstore.io/) (for publishing your plugin)
+- [A Thunderstore account](https://thunderstore.io/c/slipstream-rogues-space) (for publishing your plugin)
 
 Either:
 
@@ -41,7 +41,7 @@ If this is your first time doing anything with Git, you can use [GitHub Desktop]
 
 For the purpose of this guide I'll assume you're using GitHub Desktop.
 
-4) Once your Git client is all setup, you can use the `Clone` button online to clone your repository. You can use the `Open in GitHub Desktop` option to automatically start the clone.
+4) Once GitHub Desktop is all setup, you can use the `Clone` button online to clone your repository. You can use the `Open in GitHub Desktop` option to automatically start the clone.
 5) You should be able to `Show In Explorer` to find your project's files on your computer. (May need to go to the `Repository` menu at the top to see the option.)
 
 ### Setting up .NET and Visual Studio
