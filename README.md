@@ -18,9 +18,9 @@ OR
 
 - [BepInEx (manually installed)](https://thunderstore.io/c/slipstream-rogue-space/p/BepInEx/BepInExPack/) if you want to manage plugins manually.
 
-## (Quick) Walkthrough Video
+## (Quick-ish) Walkthrough Video
 
-(video soon!)
+https://youtu.be/jUwMFtK2tOo
 
 ## Getting Started
 
