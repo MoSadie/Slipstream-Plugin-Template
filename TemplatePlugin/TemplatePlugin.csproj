@@ -5,15 +5,29 @@
     <AssemblyName>com.mosadie.templateplugin</AssemblyName>
     <Product>TemplatePlugin</Product>
     <Description>A Template Plugin, this description should be changed!</Description>
-    <Version>1.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
+
+    <!-- MinVer settings, by default looking for a tag starting with v (ex v1.0.0)-->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
   </PropertyGroup>
+
+  <!-- Taken from Xilophor/Lethal-Company-Mod-Templates to set Mod Version correctly in *all* locations -->
+  <Target Name="SetModVersion" BeforeTargets="AddGeneratedFile" DependsOnTargets="MinVer">
+    <PropertyGroup>
+      <PlainVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</PlainVersion>
+      <BepInExPluginVersion>$(PlainVersion)</BepInExPluginVersion>
+    </PropertyGroup>
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+    <PackageReference Include="MinVer" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="UnityEngine.Modules" Version="2021.3.32" IncludeAssets="compile" />
   </ItemGroup>
@@ -22,15 +36,23 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <!-- Reference to Slipstream's Game Code -->
   <ItemGroup>
     <Reference Include="GameAssembly">
       <HintPath>lib/Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
+  <!-- Reference to MoCore, can remove if you don't want to use MoCore -->
   <ItemGroup>
     <Reference Include="MoCore">
       <HintPath>lib/com.mosadie.mocore.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <!-- Automatically attempts to package plugin for use in a manager, ONLY WHEN USING "Release" CONFIGURATION-->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
+    <Message Text="Packaging using tcli..." />
+    <Exec Command="tcli build --package-version $(MinVerMajor).$(MinVerMinor).$(MinVerPatch)" WorkingDirectory=".." />
+  </Target>
 </Project>

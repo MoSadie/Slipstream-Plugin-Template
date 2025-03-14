@@ -4,7 +4,6 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "MoSadie"
 name = "TemplatePlugin"
-versionNumber = "1.0.0"
 description = "A Template Plugin, this description should be changed!"
 websiteUrl = "https://github.com/MoSadie/Slipstream-Template-Plugin"
 containsNsfwContent = false
