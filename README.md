@@ -139,6 +139,8 @@ Then navigate the command prompt to your local plugin project files (where thund
 
 You can bundle the plugin for local testing by running `tcli build` (make sure to build in Visual Studio first!)
 
+**NEW FEATURE: This bundle process also is configured to AUTOMATICALLY happen whenever you build the project with the "Release" configuration. (Dropdown at the top in Visual Studio)**
+
 You can then import the zip file created in the `build` folder as a local mod into your mod manager.
 
 Once you're ready to publish, follow the steps [here](https://github.com/thunderstore-io/thunderstore-cli/wiki#authentication) to setup a service account and get the token. (DO NOT SHARE THE TOKEN, EVER.)
@@ -149,11 +151,10 @@ Congrats! 🎉 After a few minutes people can start downloading your plugin from
 
 ## Creating a new version
 
-1) Update thunderstore.toml with the new version number.
-2) Update your `.csproj` file with the new version number.
-3) Add an entry in [versions.json](versions.json) for the new version number.
-4) Build and bundle the plugin.
-5) After testing locally, (Change MoCore's settings to disable the version checker if needed) commit & push to GitHub then publish using `tcli publish --token ReplaceWithTheToken`
+1) Add an entry in [versions.json](versions.json) for the new version number (format it like this: `MAJOR.MINOR.PATCH` )
+2) Commit your code, then tag the commit with the version number formatted like this `vMAJOR.MINOR.PATCH` (ex. `v1.0.0`)
+3) Build the plugin using the `Release` configuration to automatically bundle it
+4) After testing locally, (Change MoCore's settings to disable the version checker if needed) push to GitHub & then publish to Thunderstore using `tcli publish --token ReplaceWithTheToken`
 
 ## When The Game Updates
 
